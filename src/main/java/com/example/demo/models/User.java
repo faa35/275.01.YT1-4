@@ -2,7 +2,17 @@
 
 package com.example.demo.models;
 
-public class Users {
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int uid;
+    
+
+
     // this is a model class
     // this includes 3 attributes
     private String name;
@@ -16,13 +26,13 @@ public class Users {
 
 
     // this first constructor will not have any attributes from above
-    public Users() {
+    public User() {
     }
 
 
     // this second constructor will have all the attributes from above
     // this constructor will take all three parameters
-    public Users(String name, String password, int size) {
+    public User(String name, String password, int size) {
         this.name = name;
         this.password = password;
         this.size = size;
@@ -56,6 +66,16 @@ public class Users {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+
+    public int getUid() {
+        return uid;
+    }
+
+
+    public void setUid(int uid) {
+        this.uid = uid;
     }
     
 
